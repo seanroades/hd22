@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Routes from './Routes';
 
 function App() {
   /* --STACK OVERVIEW PROPOSED-- 
@@ -35,6 +36,7 @@ function App() {
     <div className="App">
       { /* page routing goes here, routing to pages in pages, misc is for 
       other components like button and validitycards */ }
+      <Routes/>
     </div>
   );
 }
