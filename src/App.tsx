@@ -32,21 +32,6 @@ function App() {
   within 2 hours of the hackathon beginning
   */
 
-  // const [data, setData] = useState([]);
-
-  // async function getData() {
-  //   const testURL = 'https://api.github.com/repos/seanroades/pyramid/commits';
-  //   void async function fetchData() {
-  //       try {
-  //           const response = await fetch(testURL);
-  //           setData(await response.json());
-  //           console.log("DATA: ", data);
-  //       } catch (error) {
-  //           console.log('error', error);
-  //       }
-  //   }
-  // }
-
   return (
     <div className="App">
       { /* page routing goes here, routing to pages in pages, misc is for 
