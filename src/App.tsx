@@ -4,9 +4,12 @@ import './App.css';
 
 function App() {
   /* --STACK OVERVIEW PROPOSED-- 
-  *We could literally make API calls in react and use a ton of memory locally, <- this could fail with large inputs but would be very very quick
-  or we could use a hosted python script to process data, <- this one seems time consuming
-  or we could use node.js/express to process the data <- good alternative to #2, but will be more time consuming compared to option 1
+  *REACT ONLY - We could literally make API calls in react and use a ton of 
+  memory locally, <- this could fail with large inputs but would be very very quick
+  PYTHON REMOTELY HOSTED - We could use a hosted python script to process 
+  data, <- this one seems time consuming
+  NODEJS/EXPRESS - We could use node.js/express to process the data <- good 
+  alternative to #2, but will be more time consuming compared to option 1
   */
   
   /* 
@@ -21,6 +24,13 @@ function App() {
   something like x% is identical, based on the src file or smth
   TODO frontend from figma, loading animation last priority
   */
+
+  /* REACHES
+  TIME CHECK Enter the time the hackathon started and check for 
+  pre-hackathon projects, DQ them, and falg projects submitted 
+  within 2 hours of the hackathon beginning
+  */
+
   return (
     <div className="App">
       { /* page routing goes here, routing to pages in pages, misc is for 
