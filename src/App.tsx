@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Routes from './Routes';
+import React, { useState, useEffect } from 'react'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
+import logo from './logo.svg'
+import './App.css'
+import Routes from './Routes'
 
 function App() {
   /* --STACK OVERVIEW PROPOSED-- 
@@ -12,7 +13,7 @@ function App() {
   NODEJS/EXPRESS - We could use node.js/express to process the data <- good 
   alternative to #2, but will be more time consuming compared to option 1
   */
-  
+
   /* 
   GENERAL TODOS
   TODO set up page routing to Home, Loading, and ValCheck
@@ -32,13 +33,23 @@ function App() {
   within 2 hours of the hackathon beginning
   */
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#8BBEE8',
+      },
+    },
+  })
+
   return (
     <div className="App">
-      { /* page routing goes here, routing to pages in pages, misc is for 
-      other components like button and validitycards */ }
-      <Routes/>
+      {/* page routing goes here, routing to pages in pages, misc is for 
+      other components like button and validitycards */}
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
