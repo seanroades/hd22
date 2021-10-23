@@ -2,12 +2,12 @@ import '../../App.css'
 import React from 'react'
 import { Typography } from '@mui/material'
 
-const Home: React.FC = () => {
+const Plagarism: React.FC = () => {
   return (
     <>
-      <Typography>Getting Started</Typography>
+      <Typography>All Reports</Typography>
     </>
   )
 }
 
-export default Home
+export default Plagarism

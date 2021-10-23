@@ -2,12 +2,12 @@ import '../../App.css'
 import React from 'react'
 import { Typography } from '@mui/material'
 
-const Home: React.FC = () => {
+const ImportRepo: React.FC = () => {
   return (
     <>
-      <Typography>Getting Started</Typography>
+      <Typography>Import</Typography>
     </>
   )
 }
 
-export default Home
+export default ImportRepo
