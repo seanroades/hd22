@@ -31,6 +31,14 @@ function App() {
   within 2 hours of the hackathon beginning
   */
 
+  function fetchGithubData() {
+    
+  }
+
+  useEffect(() => {
+    fetchGithubData();
+ }, []);
+
   return (
     <div className="App">
       { /* page routing goes here, routing to pages in pages, misc is for 

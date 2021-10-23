@@ -7,7 +7,7 @@ function Home() {
     */
     return (
       <div className="App">
-        <p className="BasicTitle"></p>
+        <p className="BasicTitle">Checking for unfair submissions...</p>
       </div>
     );
   }
