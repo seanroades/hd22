@@ -1,38 +1,60 @@
+/* import google Be Vietnam font */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* breakdown like Airbnb design, starting with large screen size,
+hence why some pixel widths are set independent of screen size */
+:root {
+  --white-bg-color: rgb(255, 255, 255);
+  --text-dark-gray: #373737;
+  /* light gray text also serves as the border color for card outlines, 
+  meaning card outlines have a outline color of text-light-gray with 
+  a 2px width*/
+  --text-light-gray: #BCBCBC;
+  --dark-blue-fill: #00308F;
+  --dark-blue-outline: #0042C6;
+  --light-blue-fill: #58C8EA;
+  --dark-blue-stroke: #00308F;
+  --yellow-fill: #FED658;
+  --yellow-stroke: #ECC651;
+  --red-fill: #ED5C43;
+  --red-stroke: #C24B36;
+  /* size of button and card outline, set inside */ 
+  --default-stroke: 2px;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  --dropshadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* for card elements, like text box inputs and validity cards */
+  --card-radius: 25px;
+  /* for buttons, like the validity and submit buttons */
+  --button-radisu: 5px;
+  /* squares for loading animation */
+  --square-width: 50px;
+  /* large card width, e.g., text box input and validity cards */
+  --large-card-wdith: 946px;
+  /* large card height, e.g., text box input and validity cards */
+  --large-card-wdith: 416px;
+  /** large for titles, medium for text, may need to tone down medium */
+  --large-font: 36px;
+  --medium-font: 24px;
+  /* will add font here, but for now here's the link to the font https://fonts.google.com/specimen/Be+Vietnam */
+}
 .App {
-  text-align: center;
+  text-align: left;
+  background-color: var(--white-bg-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.BasicTitle {
+  font-family: 'Be Vietnam', sans-serif;
+  font-size: var(--large-font);
+  color: var(--text-dark-gray);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.BasicSubtitle {
+  font-family: 'Be Vietnam', sans-serif;
+  font-size: var(--medium-font);
+  color: var(--text-dark-gray);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.BasicSubtitleLight{
+  font-family: 'Be Vietnam', sans-serif;
+  font-size: var(--medium-font);
+  color: var(--text-light-gray);
 }
