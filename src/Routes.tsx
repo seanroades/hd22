@@ -4,7 +4,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom'
 import Home from './Components/Pages/Home'
 import ImportRepo from  './Components/Pages/ImportRepo'
 import Plagarism from './Components/Pages/Plagarism'
-import Base from './Components/Pages/Base'
+import BaseNav from './Components/Pages/BaseNav'
 import Settings from './Components/Pages/Settings'
 
 const Routes: React.FC = () => {
@@ -12,11 +12,9 @@ const Routes: React.FC = () => {
     <HashRouter>
       <Switch>
         <Route path="/" exact render={() => <Home />}></Route>
-
-        <Route path="/import_repo" exact render={() => <Base><ImportRepo /></Base>}></Route>
-        <Route path="/plagarism" exact render={() => <Base><Plagarism /></Base>}></Route>
-        <Route path="/settings" exact render={() => <Base><Settings /></Base>}></Route>
-
+        <Route path="/import_repo" exact render={() => <BaseNav><ImportRepo /></BaseNav>}></Route>
+        <Route path="/plagarism" exact render={() => <BaseNav><Plagarism /></BaseNav>}></Route>
+        <Route path="/settings" exact render={() => <BaseNav><Settings /></BaseNav>}></Route>
       </Switch>
     </HashRouter>
   )
