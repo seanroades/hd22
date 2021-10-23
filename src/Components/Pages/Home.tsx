@@ -1,6 +1,7 @@
 import '../../App.css'
 import React from 'react'
-import { Typography, TextField, makeStyles } from '@material-ui/core'
+import { Typography, TextField } from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 const Home: React.FC = () => {
   const styles = useStyles()

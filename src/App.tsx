@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import logo from './logo.svg'
 import './App.css'
 import Routes from './Routes'
