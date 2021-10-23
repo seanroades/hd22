@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Routes from './Routes';
 
 function App() {
   /* --STACK OVERVIEW PROPOSED-- 
@@ -31,18 +32,26 @@ function App() {
   within 2 hours of the hackathon beginning
   */
 
-  function fetchGithubData() {
-    
-  }
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetchGithubData();
- }, []);
+  // async function getData() {
+  //   const testURL = 'https://api.github.com/repos/seanroades/pyramid/commits';
+  //   void async function fetchData() {
+  //       try {
+  //           const response = await fetch(testURL);
+  //           setData(await response.json());
+  //           console.log("DATA: ", data);
+  //       } catch (error) {
+  //           console.log('error', error);
+  //       }
+  //   }
+  // }
 
   return (
     <div className="App">
       { /* page routing goes here, routing to pages in pages, misc is for 
       other components like button and validitycards */ }
+      <Routes/>
     </div>
   );
 }
