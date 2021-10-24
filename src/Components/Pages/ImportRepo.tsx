@@ -10,7 +10,7 @@ interface ImportProps {
   val: string;
   onChange(event: any) : void;
   onTimeChange(event: any) : void;
-  currTime: string;
+  currTime: Date;
 } 
 
 const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {

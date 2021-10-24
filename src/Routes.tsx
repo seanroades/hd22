@@ -10,29 +10,59 @@ const Routes: React.FC = () => {
   const [data, setData] = useState<any>(["Awaiting Data......"]);
   const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
   const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
-  const [currTime, setTime] = useState("time exists")
+  const [urlArray, setUrlArray] = useState<string[]>([])
+  const [currTime, setTime] = useState(new Date(Date.UTC(2009, 1, 13, 23, 31, 30)))
+  const [projects, setProjects] = useState<any>([])
 
   async function getData() {
-    console.log("URLsRaw", URLsRaw)
-    var input = URLsRaw.split("\n")
-    setURLs(input);
-    console.log("INPUT", input)
+    // Convert time
+    setProjects([])
+    const timestamp = currTime.getTime() / 1000
+    const input = URLsRaw.split("\n")
+    setUrlArray(input)
+    const inputArray = []
+    for (let i = 0; i < input.length; i++) {
+      const tokenArray = input[i].split("/")
+      const username = tokenArray[tokenArray.length - 2]
+      const reponame = tokenArray[tokenArray.length - 1]
+
+      // https://api.github.com/repos/seanroades/pyramid/commits
+      const apiUrl = `https://api.github.com/repos/${username}/${reponame}/commits`
+      inputArray.push(apiUrl)
+    }
+
+    setURLs(inputArray);
     for (let i = 0; i < URLs.length; i++) {
       fetch(URLs[i]).then((response) => {
         return response.json();
       })
       .then((json) => {
-        setData((data: any) => [...data, json])
+        setData([])
+        console.log("JSON", json)
+        let numCommits = json.length
+        let testTime = json[numCommits -1].commit.committer.date
+        let earliestTime = Date.parse(testTime) / 1000
+        console.log("numCommits: ", numCommits, "earliestTime", earliestTime)
+        console.log("earliestTime < timestamp:", earliestTime < timestamp, "earliestTime", earliestTime, "timestamp", timestamp)
+        if (earliestTime < timestamp) {
+          console.log("succeeded in catching cheater")
+          setProjects((projects: any) => [...projects, [URLs[i], -1]]);
+        }
+        else if (numCommits <= 3) {
+          setProjects((projects: any) => [...projects, [URLs[i], 0]]);
+        }
+        else {
+          setProjects((projects: any) => [...projects, [URLs[i], 1]]);
+        }
+        console.log(projects)
       });
     }
-    console.log("data here: ", data)
-    // if (data.length == 0) {
-    //   return -1;
-    // }
-  }
-
-  function getLinks() {
-    // get links here
+    if ((data.length > 0) && (data[0] == "Awaiting Data......")) {
+      alert("Failed to retrieve data from github. Please try again.")
+      return -1
+    }
+    console.log("🎉DATA HERE: ", data)
+    alert("🎉🎉🎉Date retrieved, check the plagarism report for more information!🎉🎉🎉")
   }
 
   function handleChange(e: any) {
@@ -40,7 +70,7 @@ const Routes: React.FC = () => {
     console.log("urls", URLsRaw)
   }
 
-  function handleTimeChange(time: any) {
+  function handleTimeChange(time: Date) {
     console.log("E is here: ", time)
     setTime(time)
     console.log("currTime", currTime)
@@ -55,7 +85,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/plagiarism" exact>
           <BaseNav />
-          <Plagiarism data={URLs} />
+          <Plagiarism data={urlArray} />
         </Route>
         <Route path="/settings" exact>
           <BaseNav />
