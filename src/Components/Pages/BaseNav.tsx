@@ -26,12 +26,15 @@ const BaseNav: React.FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            backgroundColor: '#402434',
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <Toolbar>
+        <Toolbar style={{
+          color: '#8c7488',
+        }}>
           HackDuke
         </Toolbar>
         <Divider />
