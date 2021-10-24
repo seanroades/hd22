@@ -1,52 +1,52 @@
 import React, { useState, useEffect } from 'react'
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import ImportRepo from  './Components/Pages/ImportRepo'
-import Plagarism from './Components/Pages/Plagarism'
+import ImportRepo from './Components/Pages/ImportRepo'
+import Plagiarism from './Components/Pages/Plagiarism'
 import BaseNav from './Components/Pages/BaseNav'
 import Settings from './Components/Pages/Settings'
 
 const Routes: React.FC = () => {
-  const [data, setData] = useState<any>([]);
-  const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
-  const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
-  const [currTime, setTime] = useState("time exists")
+  const [data, setData] = useState([])
 
   async function getData() {
-    for (let i = 0; i < URLs.length; i++) {
-      fetch(URLs[i]).then((response) => {
-        return response.json();
+    const testURL = 'https://api.github.com/repos/seanroades/pyramid/commits'
+    // console.log("Function get data")
+    // try {
+    //     const response = await fetch(testURL);
+    //     setData(await response.json());
+    //     console.log("DATA: ", data);
+    // } catch (error) {
+    //     console.log('error', error);
+    // }
+    fetch(testURL)
+      .then((response) => {
+        console.log(response)
+        return response.json()
       })
       .then((json) => {
-        setData((data: any) => [...data, json])
-      });
-    }
-    console.log("data here: ", data)
-  }
-
-  function getLinks() {
-    // get links here
-  }
-
-  function handleChange(e: any) {
-    setURLsRaw(e.target.value)
-    console.log("urls", URLsRaw)
-  }
-
-  function handleTimeChange(time: any) {
-    console.log("E is here: ", time)
-    setTime(time)
-    console.log("currTime", currTime)
+        console.log('JSON', json)
+        setData(json)
+      })
   }
 
   return (
-    <HashRouter>
+    <Router>
       <Switch>
-        <Route path="/" exact render={() => <ImportRepo getData={getData} val={URLsRaw} onChange={handleChange} currTime={currTime} onTimeChange={handleTimeChange}/>}></Route>
-        <Route path="/plagarism" exact render={() => <BaseNav><Plagarism /></BaseNav>}></Route>
-        <Route path="/settings" exact render={() => <BaseNav><Settings /></BaseNav>}></Route>
+        <Route path="/" exact>
+          <BaseNav />
+          <ImportRepo getData={getData} />
+        </Route>
+        <Route path="/plagiarism" exact>
+          <BaseNav />
+          <Plagiarism />
+        </Route>
+        <Route path="/settings" exact>
+          <BaseNav />
+          <Settings />
+        </Route>
       </Switch>
-    </HashRouter>
+    </Router>
   )
 }
 
