@@ -32,8 +32,10 @@ const BaseNav: React.FC = () => {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar style={{
+        <Toolbar sx={{
           color: '#8c7488',
+          marginBottom: 5,
+          fontWeight: 'medium',
         }}>
           HackDuke
         </Toolbar>
