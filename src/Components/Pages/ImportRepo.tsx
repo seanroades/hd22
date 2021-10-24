@@ -36,7 +36,7 @@ const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
         </LocalizationProvider>
         </Grid>
         <Grid item p={2}>
-          <Typography>Enter hacker's github URLs</Typography>
+          <Typography>Enter hacker's GitHub URLs:</Typography>
         </Grid>
         <Grid item p={2}>
           <TextField

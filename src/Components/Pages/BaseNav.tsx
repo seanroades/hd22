@@ -1,4 +1,8 @@
 import React from 'react'
+import DownloadingIcon from '@mui/icons-material/Downloading';
+import FindInPageIcon from '@mui/icons-material/FindInPage';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { makeStyles } from '@mui/styles'
 import {
   Drawer,
   Toolbar,
@@ -12,7 +16,7 @@ import {
 import { Link } from 'react-router-dom'
 const BaseNav: React.FC = () => {
   const drawerWidth = 240
-
+  const styles = useStyles()
   return (
     <>
       <Drawer
@@ -33,11 +37,13 @@ const BaseNav: React.FC = () => {
         <Divider />
         <List style={{ color: 'red' }}>
           <ListItem button>
+          <DownloadingIcon className={styles.input}/>
             <Link to="/" style={{ textDecoration: 'none', color: 'gray' }}>
               <ListItemText primary={'Import Repositories'} />
             </Link>
           </ListItem>
           <ListItem button>
+            <FindInPageIcon className={styles.input}/>
             <Link
               to="/plagiarism"
               style={{ textDecoration: 'none', color: 'gray' }}
@@ -46,6 +52,7 @@ const BaseNav: React.FC = () => {
             </Link>
           </ListItem>
           <ListItem button>
+            <SettingsIcon className={styles.input}/>
             <Link
               to="/settings"
               style={{ textDecoration: 'none', color: 'gray' }}
@@ -58,5 +65,14 @@ const BaseNav: React.FC = () => {
     </>
   )
 }
+
+const useStyles = makeStyles({
+  // wrapper: {},
+  input: {
+    marginRight: 10,
+    color: "gray",
+  },
+
+})
 
 export default BaseNav
