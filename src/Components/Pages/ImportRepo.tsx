@@ -61,7 +61,7 @@ const ImportRepo = (props: ImportProps) => {
 const useStyles = makeStyles({
   // wrapper: {},
   input: {
-    height: 500,
+    height: 150,
   },
   button: {
     height: 20,
