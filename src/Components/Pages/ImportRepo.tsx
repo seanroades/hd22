@@ -2,14 +2,17 @@ import '../../App.css'
 import React from 'react'
 import { Typography, TextField, Button, Grid, Container } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { style } from '@mui/system';
+
 interface ImportProps {
   getData(event: any) : void;
 } 
 
+
 const ImportRepo = (props: ImportProps) => {
-
   const styles = useStyles()
-
+  
    return (
     <>
       <Container maxWidth="sm">
@@ -17,7 +20,9 @@ const ImportRepo = (props: ImportProps) => {
 
         
       <Grid item p={2}>
-        <Typography>Enter hackathon start date:</Typography> 
+        <h2 className={styles.typo}>
+          Enter hackathon start date:
+          </h2> 
       </Grid>
 
       <Grid item p={2}>
@@ -27,7 +32,9 @@ const ImportRepo = (props: ImportProps) => {
       </Grid>
 
       <Grid item p={2}>
-        <Typography>Enter list of GitHub project links: </Typography> 
+      <h2 className={styles.typo}>
+          Enter list of GitHub project links:
+          </h2> 
       </Grid>
 
       <Grid item p={2}>
@@ -36,7 +43,7 @@ const ImportRepo = (props: ImportProps) => {
             }}/>
       </Grid>
 
-      <Grid container direction="row" spacing="8">
+      {/* <Grid container direction="row" spacing="8"> */}
       <Grid item p={2}>
           <Button
             variant="contained"
@@ -48,7 +55,7 @@ const ImportRepo = (props: ImportProps) => {
             Submit
           </Button>
       </Grid>
-        </Grid>
+        {/* </Grid> */}
         {/* </div> */}
       </Container>
     </>
@@ -64,7 +71,11 @@ const useStyles = makeStyles({
     height: 150,
   },
   button: {
-    height: 20,
+    // height: 20,
+  },
+  typo: {
+    fontSize: 25,
+    fontFamily: 'Roboto',
   },
 })
 
