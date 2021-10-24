@@ -41,7 +41,10 @@ const BaseNav: React.FC = () => {
             </Link>
           </ListItem>
           <ListItem button>
+            <Link to="/settings">
             <ListItemText primary={'Settings'} />
+            </Link>
+
           </ListItem>
         </List>
       </Drawer>
