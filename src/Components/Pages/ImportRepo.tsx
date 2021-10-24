@@ -6,7 +6,7 @@ interface ImportProps {
   getData(event: any) : void;
 } 
 
-const ImportRepo = (props: ImportProps) => {
+const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
 
   const styles = useStyles()
 
