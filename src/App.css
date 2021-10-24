@@ -58,3 +58,12 @@ hence why some pixel widths are set independent of screen size */
   font-size: var(--medium-font);
   color: var(--text-light-gray);
 }
+
+.CardBG {
+  border-radius: 5px;
+  background-color: var(--white-bg-color);
+  border-color: var(--text-light-gray);
+  border-width: 2px;
+  border-style: solid;
+  margin-top: 15px;
+}

@@ -7,12 +7,16 @@ import BaseNav from './Components/Pages/BaseNav'
 import Settings from './Components/Pages/Settings'
 
 const Routes: React.FC = () => {
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any>(["Awaiting Data......"]);
   const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
   const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
   const [currTime, setTime] = useState("time exists")
 
   async function getData() {
+    console.log("URLsRaw", URLsRaw)
+    var input = URLsRaw.split("\n")
+    setURLs(input);
+    console.log("INPUT", input)
     for (let i = 0; i < URLs.length; i++) {
       fetch(URLs[i]).then((response) => {
         return response.json();
@@ -22,6 +26,9 @@ const Routes: React.FC = () => {
       });
     }
     console.log("data here: ", data)
+    // if (data.length == 0) {
+    //   return -1;
+    // }
   }
 
   function getLinks() {
@@ -48,7 +55,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/plagiarism" exact>
           <BaseNav />
-          <Plagiarism />
+          <Plagiarism data={URLs} />
         </Route>
         <Route path="/settings" exact>
           <BaseNav />
