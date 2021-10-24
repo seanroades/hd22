@@ -19,7 +19,7 @@ const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
   return (
     <>
       <Container maxWidth="sm">
-        {/* <div className={styles.wrapper}> */}
+
 
         <Grid item p={2}>
           <Typography>Enter hackathon start date:</Typography>
@@ -50,20 +50,16 @@ const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
               onChange={props.onChange} 
           />
         </Grid>
-        <Grid container direction="row" spacing="8">
           <Grid item p={2}>
             <Button
               variant="contained"
               color="primary"
-              className={styles.button}
               size="large"
               onClick={props.getData}
             >
               Submit
             </Button>
           </Grid>
-        </Grid>
-        {/* </div> */}
       </Container>
     </>
   )
@@ -74,9 +70,7 @@ const useStyles = makeStyles({
   input: {
     height: 500,
   },
-  button: {
-    height: 20,
-  },
+
 })
 
 export default ImportRepo
