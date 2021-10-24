@@ -10,7 +10,7 @@ const Routes: React.FC = () => {
   const [data, setData] = useState<any>(["Awaiting Data......"]);
   const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
   const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
-  const [currTime, setTime] = useState("time exists")
+  const [currTime, setTime] = useState(new Date(Date.UTC(2009, 1, 13, 23, 31, 30)))
 
   async function getData() {
     console.log("URLsRaw", URLsRaw)
@@ -40,7 +40,7 @@ const Routes: React.FC = () => {
     console.log("urls", URLsRaw)
   }
 
-  function handleTimeChange(time: any) {
+  function handleTimeChange(time: Date) {
     console.log("E is here: ", time)
     setTime(time)
     console.log("currTime", currTime)
