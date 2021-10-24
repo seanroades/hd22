@@ -17,8 +17,19 @@ const Routes: React.FC = () => {
     // Convert time
     setProjects([])
     const timestamp = currTime.getTime() / 1000
-    var input = URLsRaw.split("\n")
-    setURLs(input);
+    const input = URLsRaw.split("\n")
+    const inputArray = []
+    for (let i = 0; i < input.length; i++) {
+      const tokenArray = input[i].split("/")
+      const username = tokenArray[tokenArray.length - 2]
+      const reponame = tokenArray[tokenArray.length - 1]
+
+      // https://api.github.com/repos/seanroades/pyramid/commits
+      const apiUrl = `https://api.github.com/repos/${username}/${reponame}/commits`
+      inputArray.push(apiUrl)
+    }
+
+    setURLs(inputArray);
     for (let i = 0; i < URLs.length; i++) {
       fetch(URLs[i]).then((response) => {
         return response.json();
