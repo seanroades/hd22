@@ -10,6 +10,7 @@ const Routes: React.FC = () => {
   const [data, setData] = useState<any>(["Awaiting Data......"]);
   const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
   const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
+  const [urlArray, setUrlArray] = useState<string[]>([])
   const [currTime, setTime] = useState(new Date(Date.UTC(2009, 1, 13, 23, 31, 30)))
   const [projects, setProjects] = useState<any>([])
 
@@ -18,6 +19,7 @@ const Routes: React.FC = () => {
     setProjects([])
     const timestamp = currTime.getTime() / 1000
     const input = URLsRaw.split("\n")
+    setUrlArray(input)
     const inputArray = []
     for (let i = 0; i < input.length; i++) {
       const tokenArray = input[i].split("/")
@@ -83,7 +85,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/plagiarism" exact>
           <BaseNav />
-          <Plagiarism data={URLs} />
+          <Plagiarism data={urlArray} />
         </Route>
         <Route path="/settings" exact>
           <BaseNav />

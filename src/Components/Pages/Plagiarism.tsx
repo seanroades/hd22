@@ -11,6 +11,7 @@ const Plagiarism: React.FC<PlagiarismProps> = (props: PlagiarismProps) => {
   const styles = useStyles()
 
   var cardArray = []
+  console.log(props.data)
   for(let i = 0; i < props.data.length; i++) {
     // Push to card components
     console.log("PROPS", props.data)
