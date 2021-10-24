@@ -1,7 +1,7 @@
 # HackVerify
 
 ## Authenticating the integrity of today's hackathon projects
-- utilized multi-criteria checks for flagging invalid hacks
+- utilizes multi-criteria checks for flagging invalid hacks
 - detects plagiarism and illegal early starts 
 
 ## Figma mockup here:

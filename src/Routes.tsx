@@ -43,7 +43,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/settings" exact>
           <BaseNav />
-            <Settings />
+          <Settings />
         </Route>
       </Switch>
     </Router>

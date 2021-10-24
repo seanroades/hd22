@@ -3,14 +3,13 @@ import React from 'react'
 import { Typography, TextField, Button, Grid, Container } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 interface ImportProps {
-  getData(event: any) : void;
-} 
+  getData(event: any): void
+}
 
 const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
-
   const styles = useStyles()
 
-   return (
+  return (
     <>
       <Container maxWidth="sm">
         {/* <div className={styles.wrapper}> */}
@@ -48,10 +47,7 @@ const ImportRepo: React.FC<ImportProps> = (props: ImportProps) => {
       </Container>
     </>
   )
-
-
 }
-
 
 const useStyles = makeStyles({
   // wrapper: {},
@@ -64,7 +60,3 @@ const useStyles = makeStyles({
 })
 
 export default ImportRepo
-
-
-
-
