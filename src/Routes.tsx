@@ -31,9 +31,11 @@ const Routes: React.FC = () => {
         console.log("JSON", json)
         let numCommits = json.length
         let testTime = json[numCommits -1].commit.committer.date
-        let earliestTime = Date.parse(testTime)
+        let earliestTime = Date.parse(testTime) / 1000
         console.log("numCommits: ", numCommits, "earliestTime", earliestTime)
+        console.log("earliestTime < timestamp:", earliestTime < timestamp, "earliestTime", earliestTime, "timestamp", timestamp)
         if (earliestTime < timestamp) {
+          console.log("succeeded in catching cheater")
           setProjects((projects: any) => [...projects, [URLs[i], -1]]);
         }
         else if (numCommits <= 3) {
