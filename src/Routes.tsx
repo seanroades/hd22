@@ -11,9 +11,13 @@ const Routes: React.FC = () => {
   const [URLs, setURLs] = useState(["https://api.github.com/repos/seanroades/pyramid/commits", "https://api.github.com/repos/seanroades/pyramid/commits"]);
   const [URLsRaw, setURLsRaw] = useState("Enter your URLs here, one line for each...")
   const [currTime, setTime] = useState(new Date(Date.UTC(2009, 1, 13, 23, 31, 30)))
+  const [projects, setProjects] = useState<any>([])
 
   async function getData() {
-    console.log("URLsRaw", URLsRaw)
+    // Convert time
+    setProjects([])
+    const timestamp = currTime.getTime() / 1000
+    console.log("TIMESTAMP", timestamp);
     var input = URLsRaw.split("\n")
     setURLs(input);
     console.log("INPUT", input)
@@ -22,17 +26,31 @@ const Routes: React.FC = () => {
         return response.json();
       })
       .then((json) => {
-        setData((data: any) => [...data, json])
+        // setData((data: any) => [...data, json])
+        setData([])
+        console.log("JSON", json)
+        let numCommits = json.length
+        let testTime = json[numCommits -1].commit.committer.date
+        let earliestTime = Date.parse(testTime)
+        console.log("numCommits: ", numCommits, "earliestTime", earliestTime)
+        if (earliestTime < timestamp) {
+          setProjects((projects: any) => [...projects, [URLs[i], -1]]);
+        }
+        else if (numCommits <= 3) {
+          setProjects((projects: any) => [...projects, [URLs[i], 0]]);
+        }
+        else {
+          setProjects((projects: any) => [...projects, [URLs[i], 1]]);
+        }
+        console.log(projects)
       });
     }
-    console.log("data here: ", data)
-    // if (data.length == 0) {
-    //   return -1;
-    // }
-  }
-
-  function getLinks() {
-    // get links here
+    if ((data.length > 0) && (data[0] == "Awaiting Data......")) {
+      alert("Failed to retrieve data from github. Please try again.")
+      return -1
+    }
+    console.log("🎉DATA HERE: ", data)
+    alert("🎉🎉🎉Date retrieved, check the plagarism report for more information!🎉🎉🎉")
   }
 
   function handleChange(e: any) {
