@@ -9,7 +9,7 @@ import {
   // Link
 } from '@mui/material'
 // import SettingsIcon from '@mui/icons-material/Settings';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const BaseNav: React.FC = () => {
   const drawerWidth = 240
 
@@ -27,24 +27,31 @@ const BaseNav: React.FC = () => {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
+        <Toolbar>
+          HackDuke
+        </Toolbar>
         <Divider />
-        <List>
+        <List style={{ color: 'red' }}>
           <ListItem button>
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: 'none', color: 'gray' }}>
               <ListItemText primary={'Import Repositories'} />
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/plagiarism">
+            <Link
+              to="/plagiarism"
+              style={{ textDecoration: 'none', color: 'gray' }}
+            >
               <ListItemText primary={'Plagiarism Reports'} />
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/settings">
-            <ListItemText primary={'Settings'} />
+            <Link
+              to="/settings"
+              style={{ textDecoration: 'none', color: 'gray' }}
+            >
+              <ListItemText primary={'Settings'} />
             </Link>
-
           </ListItem>
         </List>
       </Drawer>
