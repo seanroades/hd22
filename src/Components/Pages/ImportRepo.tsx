@@ -1,14 +1,26 @@
 import '../../App.css'
 import React from 'react'
-import { Typography } from '@mui/material'
+import { Typography, Button, TextField } from '@mui/material'
 interface ImportProps {
   getData(event: any) : void;
+  val: string;
+  onChange(event: any) : void;
 } 
 
 const ImportRepo = (props: ImportProps) => {
   return (
     <>
-      <button style={{width: '100px', height: '200px', backgroundColor: 'blue', color: 'white'}} className="Button" onClick={props.getData}>Press me</button>
+      <TextField
+          fullWidth
+          id="filled-textarea"
+          label="Multiline Placeholder"
+          placeholder="Placeholder"
+          multiline
+          variant="filled"
+          rows={10}
+          onChange={props.onChange} 
+        />
+      <Button variant="contained" onClick={props.getData}>Submit</Button>
       <Typography>Import</Typography>
       <p>test</p>
     </>
