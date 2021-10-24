@@ -17,16 +17,13 @@ const Routes: React.FC = () => {
     // Convert time
     setProjects([])
     const timestamp = currTime.getTime() / 1000
-    console.log("TIMESTAMP", timestamp);
     var input = URLsRaw.split("\n")
     setURLs(input);
-    console.log("INPUT", input)
     for (let i = 0; i < URLs.length; i++) {
       fetch(URLs[i]).then((response) => {
         return response.json();
       })
       .then((json) => {
-        // setData((data: any) => [...data, json])
         setData([])
         console.log("JSON", json)
         let numCommits = json.length
